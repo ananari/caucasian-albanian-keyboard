@@ -1,8 +1,16 @@
+//finding the text boxes
 const input = document.querySelector('#input-text');
 const output = document.querySelector('#output-text');
+/*
+sorting the letters into separate objects based on the number of graphemes,
+so that our substitutions can be applied in the right order - otherwise,
+we might not be able to do substitute "ch'" because "ch" will have
+taken precedence
+*/
 const table1 = {};
 const table2 = {};
 const table3 = {};
+// object full of letters
 const full_table = {
             'a': {letter: '𐔰', ipa: "a"},
             'b': {letter: '𐔱', ipa: "b"},
@@ -60,6 +68,12 @@ const full_table = {
             'u': {letter: '𐕒𐕡' ,ipa: "u"}, 
             "Y": {letter: "𐕞𐕡", ipa: "y"}
         };
+/*
+deciding which letters go into which object - letter sequences with
+apostrophes take predence over other letter sequences which take
+predence over single letters
+
+*/
 for(const k in full_table){
   if(k.match(/'/)){
     table1[k] = full_table[k];
@@ -71,6 +85,7 @@ for(const k in full_table){
     table3[k] = full_table[k];
   }
 }
+//using the full object of letters to fill a guide to the script
 const letters = document.querySelector("#letters");
 function udiReplacement(str){
     function udiCharacter(string){
