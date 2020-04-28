@@ -1,6 +1,6 @@
 //finding the text boxes
 const input = document.querySelector('#input-text');
-const output = document.querySelector('#output-text');
+const output = document.querySelector('#caucalb-output-text');
 /*
 sorting the letters into separate objects based on the number of graphemes,
 so that our substitutions can be applied in the right order - otherwise,
