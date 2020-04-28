@@ -1,0 +1,32 @@
+
+h1, h4, p {
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+#output-text {
+  font-family: "Surma", "Noto Sans Syloti Nagri", "Unifont Upper";
+  font-size: large;
+}
+
+textarea {
+  width: 50%;
+  height: 100px;
+}
+
+#letters {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#letters th, td {
+  border: 1px solid black;
+}
+
+

@@ -86,7 +86,7 @@ for(const k in full_table){
   }
 }
 //using the full object of letters to fill a guide to the script
-const letters = document.querySelector("#letters");
+const letters = document.querySelector("#letters > tbody");
 function udiReplacement(str){
     function udiCharacter(string){
         for(const k in table1){
@@ -120,15 +120,18 @@ input.addEventListener('keyup', function(){
     output.value = udiReplacement(input.value);
 })
 for(const k in full_table){
-  row = document.createElement('tr');
-  td1 = document.createElement('td');
-  td2 = document.createElement('td');
-  td3 = document.createElement('td');
-  td1.innerText = full_table[k].letter;
-  td2.innerText = k;
+  let row = document.createElement('tr');
+  let td1 = document.createElement('td');
+  let td2 = document.createElement('td');
+  let td3 = document.createElement('td');
+  let td4 = document.createElement('td');
+  td1.innerText = k;
+  td2.innerText = full_table[k].letter;
   td3.innerText = full_table[k].ipa;
+  td4.innerText = `U+${full_table[k].letter.codePointAt(0).toString(16).toUpperCase()}`;
   row.appendChild(td1);
   row.appendChild(td2);
   row.appendChild(td3);
+  row.appendChild(td4);
   letters.appendChild(row);
 }
